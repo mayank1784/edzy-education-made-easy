@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="images/books.png">
+	<title>Login/SignUp</title>
+	<link rel="stylesheet" type="text/css" href="loginstyle.css">
+	
+
+  <!-- It will redirect to the Home Page after submitting the form
+  <script>
+  $(document).ready(function(){
+    $("form").submit(function(){
+      alert("Registration Successful !");
+    });
+  });
+  </script> -->
+</head>
+<body>
+		<div class="form-box">
+			<div class="button-box">
+				<div id="btn"></div>
+				<button type="button" class="toggle-btn" id="log" onclick="login()" style="color: #fff;">Log In</button>
+				<button type="button" class="toggle-btn" id="reg" onclick="register()">Register</button>
+			</div>
+			<div class="social-icons">
+				<img src="images/fb2.png">
+				<img src="images/insta2.png">
+				<img src="images/tt2.png">
+			</div>
+			
+			<!-- Login Form -->
+			<form id="login" class="input-group" action="/login" method="post">
+				<div class="inp">
+					<img src="images/user.png"><input type="text" id="email" class="input-field" placeholder="Email" name="email" style="width: 88%; border:none;" required="required">
+				</div>
+				<div class="inp">
+					<img src="images/password.png"><input type="password" id="password" name="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
+				</div>
+				<input type="checkbox" class="check-box">Remember Password
+				<button type="submit" class="submit-btn">Log In</button>
+			</form>
+
+
+			<div class="other" id="other">
+				<div class="instead">
+					<h3>or</h3>
+				</div>
+				<button class="connect" onclick="google()">
+					<img src="images/courses/google.png"><span>Sign in with Google</span>
+				</button>
+			</div>
+			
+			<!-- Registration Form -->
+			<form id="register" action="/register" method="post" class="input-group">
+				<input type="text" class="input-field" name="fullName" placeholder="Full Name" required="required">
+				<input type="email" class="input-field" name="email" placeholder="Email Address" required="required">
+				<input type="password" class="input-field" placeholder="Create Password" name="pass" required="required">
+				<input type="password" class="input-field" placeholder="Confirm Password" name="passConf" required="required">
+				<input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms & Conditions
+				<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
+			</form>
+		</div>
+		<!-- <script type="text/javascript" src="loginscript.js"></script> -->
+<script>
+	// For LOGIN
+var x = document.getElementById("login");
+var y = document.getElementById("register");
+var z = document.getElementById("btn");
+var a = document.getElementById("log");
+var b = document.getElementById("reg");
+var w = document.getElementById("other");
+
+function register() {
+  x.style.left = "-400px";
+  y.style.left = "50px";
+  z.style.left = "110px";
+  w.style.visibility = "hidden";
+  b.style.color = "#fff";
+  a.style.color = "#000";
+}
+
+function login() {
+  x.style.left = "50px";
+  y.style.left = "450px";
+  z.style.left = "0px";
+  w.style.visibility = "visible";
+  a.style.color = "#fff";
+  b.style.color = "#000";
+}
+  
+// CheckBox Function
+function goFurther(){
+  if (document.getElementById("chkAgree").checked == true) {
+    document.getElementById('btnSubmit').style = 'background: linear-gradient(to right, #3744fa, 6fd4e6);';
+  }
+  else{
+    document.getElementById('btnSubmit').style = 'background: lightgray;';
+  }
+}
+
+</script>
+	</body>
+</html>
